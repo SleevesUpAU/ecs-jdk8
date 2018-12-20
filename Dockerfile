@@ -12,6 +12,7 @@ RUN apk add --no-cache bash curl tini py-pip python unzip \
     rm vault_0.10.4_linux_amd64.zip consul_1.2.2_linux_amd64.zip && \
     mv vault consul /usr/local/bin/ 
 
+
 ENV JAVA_OPTS -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1
 
 ENTRYPOINT ["/sbin/tini", "--", "/docker-entrypoint.sh"]

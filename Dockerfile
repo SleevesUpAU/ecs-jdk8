@@ -5,7 +5,6 @@ RUN apk add --no-cache bash curl tini py-pip python unzip \
     pip install --no-cache-dir --upgrade pip awscli && \
     curl -sLo /newrelic.jar https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.jar && \
     curl -sLo /newrelic.yml https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.yml && \
-    curl -sLo /newrelic.py https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.py && \
     curl -O https://releases.hashicorp.com/vault/0.10.4/vault_0.10.4_linux_amd64.zip && \
     curl -O https://releases.hashicorp.com/consul/1.2.2/consul_1.2.2_linux_amd64.zip && \
     unzip vault_0.10.4_linux_amd64.zip && \

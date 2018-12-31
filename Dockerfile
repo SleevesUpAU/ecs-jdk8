@@ -12,8 +12,7 @@ RUN apk add --no-cache bash curl tini py-pip python unzip \
 
 RUN curl -sLo /newrelic.jar https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.jar && \
     curl -sLo /newrelic.yml https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.yml && \
-    curl -sLo /newrelic.py https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.py && \
-    ls -la 
+    curl -sLo /newrelic.py https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.py 
 
 ENV JAVA_OPTS -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1
 

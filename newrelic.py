@@ -17,7 +17,8 @@ def transform_newrelic_conf():
         template = f.read()
 
     content = (
-        template.replace('__LICENSE_KEY__', subprocess.Popen(newrelic_license_key.split(" "), stdout=subprocess.PIPE).stdout.readline())                          .replace('__ENVIRONMENT_NAME__', '{}'.format(subprocess.Popen(env.split(" "), stdout=subprocess.PIPE).stdout.readline()))
+        template.replace('__LICENSE_KEY__', subprocess.Popen(newrelic_license_key.split(" "), stdout=subprocess.PIPE).stdout.readline())
+            .replace('__ENVIRONMENT_NAME__', '{}'.format(subprocess.Popen(env.split(" "), stdout=subprocess.PIPE).stdout.readline()))
             .replace('__NEWRELIC_NAME__', '{}'.format(subprocess.Popen(app_name.split(" "), stdout=subprocess.PIPE).stdout.readline()))
             .replace('log_level: info', 'log_level: off')
             )

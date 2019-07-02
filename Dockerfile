@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:full
+FROM frolvlad/alpine-oraclejre8
 
 RUN apk add --no-cache bash curl tini py-pip python unzip \
         libuuid && \
@@ -12,7 +12,8 @@ RUN apk add --no-cache bash curl tini py-pip python unzip \
 
 RUN curl -sLo /newrelic.jar https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.jar && \
     curl -sLo /newrelic.yml https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.yml && \
-    curl -sLo /newrelic.py https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.py 
+    curl -sLo /newrelic.py https://s3.amazonaws.com/dev-sup-public/newrelic/newrelic.py && \
+    wget -O dd-java-agent.jar 'https://search.maven.org/classic/remote_content?g=com.datadoghq&a=dd-java-agent&v=LATEST' && mv dd-java-agent.jar /tmp/
 
 ENV JAVA_OPTS -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1
 
